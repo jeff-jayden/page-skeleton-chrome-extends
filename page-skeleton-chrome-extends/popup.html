@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>popup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .page {
+            padding: 10px;
+        }
+
+        .textarea {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+        }
+
+        body {
+            width: 360px;
+        }
+
+        .info {
+            color: red;
+            margin-bottom: 10px
+        }
+
+        p {
+            margin: 0
+        }
+
+        .form-item {
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .form-item-label {
+            display: inline-block;
+            width: 100px;
+            text-align: left
+        }
+
+        .is-ts {
+            display: none
+        }
+
+        input[type=radio] {
+            margin-left: 10px
+        }
+
+        .btn-gen,
+        .question-btn {
+            margin-top: 10px
+        }
+
+        .warning {
+            color: red;
+            display: none
+        }
+
+        .gen-result-msg {
+            color: red
+        }
+
+        .gen-result {
+            padding-top: 10px
+        }
+
+        .gen-result p {
+            margin-bottom: 10px
+        }
+
+        .loading {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: rgba(204, 204, 204, .9);
+            color: #fff;
+            padding-top: 100px;
+            text-align: center;
+            box-sizing: border-box;
+            display: none
+        }
+
+        .hide {
+            display: none
+        }
+
+        .text {
+            font-size: 14px;
+        }
+
+        .item {
+            margin-bottom: 18px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .clearfix:after {
+            clear: both
+        }
+
+        .box-card {
+            width: 100%;
+        }
+
+        .config-textarea {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .el-textarea__inner {
+            resize: none !important;
+        }
+    </style>
+    <link href="https://cdn.bootcss.com/element-ui/2.3.9/theme-chalk/index.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <el-card class="box-card">
+            <div slot="header" class="card-header">
+                <h2>生成骨架屏</h2>
+            </div>
+            <p>配置项</p>
+            <el-input class="config-textarea" v-model="config" type="textarea" :autosize="{minRows:10}"></el-input>
+            <el-button class="btn-gen" type="submit" type="primary" @click="createSkeleton">开始生成</el-button>
+            <div class="gen-result" v-show="visible">
+                <el-button @click="handleCopy" type="primary">复制</el-button>
+                <el-button @click="handleEdit" type="info">编辑</el-button>
+            </div>
+        </el-card>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/element-ui/2.3.9/index.js"></script>
+    <script type="text/javascript" src="popup.js"></script>
+</body>
+
+</html>
